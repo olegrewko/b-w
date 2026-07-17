@@ -138,6 +138,7 @@ body {
 }
 
 .main {
+  padding-top: 0px;
   flex: 1 1 auto;
   margin-bottom: 0px;
 }
@@ -309,10 +310,7 @@ p {
   /* background: var(--light-grey-color); */
   border-bottom: 0px solid var(--gray-400);
 }
-.main {
-  padding-top: 60px;
-  /* ← чтобы контент не перекрывался */
-}
+
 .header__top-inner {
   display: flex;
   justify-content: space-between;
@@ -360,7 +358,7 @@ p {
   background: #000;
   width: 100%;
   overflow: hidden;
-  padding-top: 60px;
+
 
 }
 
@@ -372,7 +370,10 @@ p {
 
 .slider-blog__item {
   width: 100%;
-  aspect-ratio: 1400 / 660;
+  min-height: 260px;
+    /* ← минимальная высота */
+    max-height: 450px;
+    /* ← максимальная высота */
   overflow: hidden;
   background: #000;
   display: flex;
@@ -384,6 +385,9 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* ← заполняет контейнер */
+  object-position: center;
+  /* ← центрирует */
   display: block;
 }
 
