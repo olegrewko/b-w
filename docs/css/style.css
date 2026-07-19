@@ -149,7 +149,7 @@ body {
 }
 
 .main {
-  padding-top: 0px;
+  padding-top: 10px;
   flex: 1 1 auto;
   margin-bottom: 0px;
 }
@@ -2026,7 +2026,7 @@ p {
   }
 
   .shop-grid__cell:last-child {
-    border-bottom: none;
+    border-bottom: 0px solid #f8f6f6;
   }
 
   /* Добавляем подписи для каждой ячейки */
