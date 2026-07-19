@@ -149,7 +149,7 @@ body {
 }
 
 .main {
-  padding-top: 10px;
+  padding-top: 0px;
   flex: 1 1 auto;
   margin-bottom: 0px;
 }
@@ -876,8 +876,8 @@ p {
 
 .container {
   max-width: 1200px;
-  margin: 10px auto;
-  padding: 10px;
+  margin: 5px auto;
+  padding: 5px;
 
 }
 
