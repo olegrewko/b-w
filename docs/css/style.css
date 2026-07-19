@@ -289,8 +289,8 @@ p {
 .text-center {
   text-align: center;
   font-family: 'Jost';
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 900;
+
   line-height: 120%;
   color: #101c10;
 }
@@ -1982,7 +1982,7 @@ p {
   background-color: var(--bauhaus-dark);
   color: #ffffff;
   border: 2px solid var(--bauhaus-black);
-    
+
   border-radius: 4px;
   font-size: 12px;
   font-weight: 500;
@@ -2015,10 +2015,10 @@ p {
   /* Каждая строка — отдельная карточка */
   .shop-grid__cell {
     display: grid;
-    grid-template-columns: 130px 1fr;
+    grid-template-columns: 100px 1fr;
     gap: 10px;
     padding: 10px 15px;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid #f8f6f6;
     background-color: #ffffff;
     text-align: left;
     min-height: auto;
@@ -2073,7 +2073,7 @@ p {
   .shop-grid__btn {
     grid-column: 2;
     justify-self: start;
-    padding: 6px 30px;
+    padding: 6px 20px;
     width: auto;
     border: 2px solid var(--bauhaus-black);
     border-radius: 4px;
@@ -2081,7 +2081,7 @@ p {
 
   /* Если кнопка идёт после подписи */
   .shop-grid__cell:has(.shop-grid__btn) {
-    grid-template-columns: 130px 1fr;
+    grid-template-columns: 100px 1fr;
   }
 
   .shop-grid__cell span {
@@ -2116,8 +2116,8 @@ p {
 
         /* ===== ВЫДЕЛЕНИЕ СТРОКИ МАГАЗИНА НА МОБИЛЬНЫХ ===== */
         .shop-grid__cell:nth-child(7n+1) {
-          background-color: var(--accent-color);
-          border-radius: 8px 8px 0 0;
+          background-color: var(--color-gold);
+          border-radius: 4px 4px 0 0;
           border-bottom: 0px solid #d4b87a;
           font-weight: 700;
           color: #3d2b00;
