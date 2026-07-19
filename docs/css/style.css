@@ -1,4 +1,17 @@
+img {
+  max-width: 100%;
+  border-style: none;
+}
 
+.cell-800 {
+
+  max-width: 800px;
+  width: 100%;
+
+  padding: 5px;
+  margin: 0 auto;
+
+}
 /* advantages */
 .ml-10 {
    margin-left: 10px;
@@ -170,10 +183,16 @@ li {
 }
 
 /* ========== ТИПОГРАФИКА ========== */
+/* ========== ТИПОГРАФИКА ========== */
 h1,
 h2,
 h3,
+.title-6r {
+  font-family: 'Rubik', monospace;
+  font-weight: 500;
+  letter-spacing: -0.5px;
 
+}
 
 h4 {
   font-size: 0.7rem;
@@ -486,22 +505,23 @@ p {
 
 /* ========== ABOUT ========== */
 .about__inner {
-
   display: flex;
   flex-wrap: nowrap;
-  gap: 5px;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+
 }
 
 .about__inner+.about__inner {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .about__cell {
-  flex: 1;
-  /* max-width: 1200px; */
+  max-width: 800px;
   width: 100%;
+  margin: 0px;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -521,10 +541,15 @@ p {
   text-align: left;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   .about__inner {
-    flex-direction: column;
-  }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 600px;
+      width: 100%;
+    }
 }
 
 
@@ -851,8 +876,9 @@ p {
 
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 10px;
+
 }
 
 /* ========== TO TOP ========== */
@@ -1094,6 +1120,15 @@ p {
 
 /* ========== АДАПТИВ ========== */
 @media (max-width: 768px) {
+
+    .about__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 600px;
+        width: 100%;
+      }
   .menu__list {
     position: absolute;
     left: 0;
@@ -1793,7 +1828,7 @@ p {
 
 /* radio **********************************************************/
     .septic__left {
-      max-width: 600px;
+      max-width: 500px;
       width: 100%;
       padding: 5px;
     }
@@ -1862,4 +1897,19 @@ p {
   .fotorama__img {
     max-height: 200px;
   }
+}
+.fotorama-wrapper {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+/* ===== FOTORAMA АДАПТИВ ===== */
+/* ===== АДАПТИВ ДЛЯ МОБИЛЬНЫХ ===== */
+.about__ca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
