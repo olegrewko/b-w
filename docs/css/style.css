@@ -49,12 +49,7 @@ img {
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Jost";
-  font-weight: 400;
-  src: url("../fonts/Jost-Regular.woff2") format("woff2");
-  font-display: swap;
-}
+
 
 @font-face {
   font-family: 'Rubik';
@@ -88,18 +83,6 @@ img {
   --crime-blue: #005C9E;
   --crime-green: #2A6B3C;
 
-
-
-  --bg: #FFFFFF;
-  --surface: #F5F5F5;
-  --text-primary: #1A1A1A;
-  --text-secondary: #616161;
-  --border: #E0E0E0;
-  --accent: #E03C31;
-  --accent-alt: #1A5F7A;
-  --success: #2A6B3C;
-  --warning: #E6AE05;
-
   --black: #1A1A1A;
   --white: #FFFFFF;
   --gray-100: #F5F5F5;
@@ -107,8 +90,7 @@ img {
   --gray-500: #9E9E9E;
   --gray-700: #616161;
   --gray-900: #2D2D2D;
-  --accent-red: #E03C31;
-  --accent-blue: #1A5F7A;
+
 
   --color-space: #2F394D;
   --color-midnight: #1a1a2e;
@@ -187,12 +169,7 @@ li {
 h1,
 h2,
 h3,
-.title-6r {
-  font-family: 'Rubik', monospace;
-  font-weight: 500;
-  letter-spacing: -0.5px;
 
-}
 
 h4 {
   font-size: 0.7rem;
@@ -218,7 +195,10 @@ p {
 }
 
 .container1800 {
-  border: none;
+  /* max-width: 1800px; */
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
 }
 
 .mt-50 {
@@ -482,7 +462,7 @@ p {
 .grid-5 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
+  gap: 10px;
   max-width: 1400px;
   width: 100%;
 }
@@ -490,7 +470,7 @@ p {
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
+  gap: 10px;
   max-width: 1400px;
   width: 100%;
 }
@@ -502,6 +482,51 @@ p {
     grid-template-columns: 1fr;
   }
 }
+.card {
+  width: auto;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  border: 0px solid var(--gray-color);
+  transition: all .3s;
+  cursor: pointer;
+}
+
+
+@media (max-width: 1200px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .grid-4 {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
 
 /* ========== ABOUT ========== */
 .about__inner {
@@ -1172,10 +1197,6 @@ p {
     padding: 0 15px !important;
   }
 
-  .grid-5,
-  .grid-3 {
-    gap: 15px !important;
-  }
 
   .about__inner {
     flex-direction: column !important;
@@ -2123,4 +2144,11 @@ p {
           color: #3d2b00;
         }
 }
-
+.depo-title {
+  font-weight: 900;
+  font-size: 18px;
+}
+.text-left {
+  font-weight: 900;
+    font-size: 16px;
+}
