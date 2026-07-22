@@ -770,17 +770,17 @@ p {
 /* ========== TITLE STYLES ========== */
 .title-6r {
   font-family: 'Rubik';
-  font-weight: 400;
-  line-height: 100px;
-  font-size: 40px;
+  font-weight: 900;
+  line-height: 120%;
+  font-size: 25px;
   color: var(--bauhaus-black);
 }
 
 .title-3r {
   font-family: 'Rubik';
-  font-weight: 400;
-  line-height: 100px;
-  font-size: 25px;
+  font-weight: 900;
+  line-height: 120%;
+  font-size: 20px;
   color: var(--color-space);
 }
 
@@ -842,14 +842,14 @@ p {
 .contact-grid-w100 {
   border: 3px solid var(--color-space);
   box-sizing: border-box;
-  padding: 0px;
-  border-radius: var(--border-radius);
+  padding: 20px;
+  border-radius: 4px;
   max-width: 1400px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  column-gap: 0px;
+  column-gap: 10px;
   align-items: center;
   margin: 0px auto;
   background-color: white;
@@ -1245,12 +1245,7 @@ p {
   }
 }
 
-@media (max-width: 400px) {
-  .contact-grid-w100 {
-    padding: 0px !important;
-    margin: 0px 0px;
-  }
-}
+
 
 @media (max-width: 820px) {
   .text-grid-w23 {
