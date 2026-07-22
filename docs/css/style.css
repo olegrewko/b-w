@@ -296,11 +296,12 @@ p {
   left: 0;
   right: 0;
   top: 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(0, 0.5, 0.5, 0.5);
   z-index: 1;
   background: var(--gray-300);
   /* background: var(--light-grey-color); */
   border-bottom: 0px solid var(--gray-400);
+
 }
 
 .header__top-inner {
@@ -583,11 +584,11 @@ p {
 /* Закрепляем высоту контейнера с табами */
 .tabcontent {
   display: none;
-  height: 600px;
+  height: 700px;
   /* ← фиксированная высота */
   overflow-y: auto;
   /* ← прокрутка внутри */
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
 }
 
@@ -618,14 +619,14 @@ p {
 /* Для мобильных устройств */
 @media (max-width: 768px) {
   .tabcontent {
-    min-height: 500px;
+    min-height: 600px;
     /* ← меньше высота на мобильных */
   }
 }
 
 @media (max-width: 480px) {
   .tabcontent {
-    min-height: 400px;
+    min-height: 500px;
     /* ← ещё меньше */
   }
 }
@@ -772,15 +773,15 @@ p {
   font-family: 'Rubik';
   font-weight: 900;
   line-height: 120%;
-  font-size: 25px;
+  font-size: 20px;
   color: var(--bauhaus-black);
 }
 
-.title-3r {
+.title-12r {
   font-family: 'Rubik';
   font-weight: 900;
   line-height: 120%;
-  font-size: 20px;
+  font-size: 30px;
   color: var(--color-space);
 }
 
@@ -828,15 +829,14 @@ p {
 
 .text-grid-w23 {
   border: 0px solid var(--color-space);
+  /* max-width: 1800px; */
   width: 100%;
   display: grid;
   grid-template-columns: 3fr 9fr;
   grid-auto-rows: minmax(100px, auto);
   column-gap: 0px;
   align-items: center;
-  margin-left: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin: 0 auto;
 }
 
 .contact-grid-w100 {
@@ -901,8 +901,8 @@ p {
 
 .container {
   max-width: 1200px;
-  margin: 5px auto;
-  padding: 5px;
+  margin: 10px 5px;
+  padding: 10px;
 
 }
 
