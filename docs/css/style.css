@@ -31,6 +31,7 @@ img {
   transition: all .3s;
   cursor: pointer;
 }
+
  /* ========== СЛАЙДЕР ========== */
 
 
@@ -85,7 +86,7 @@ img {
 
   --black: #1A1A1A;
   --white: #FFFFFF;
-  --gray-100: #F5F5F5;
+
   --gray-300: #E0E0E0;
   --gray-500: #9E9E9E;
   --gray-700: #616161;
@@ -121,7 +122,7 @@ body {
   font-size: 14px;
   line-height: 24px;
   color: #373A39;
-  background: var(--bg);
+  /* background: var(--bg-color); */
 }
 
 .wrapper {
@@ -195,7 +196,7 @@ p {
 }
 
 .container1800 {
-  /* max-width: 1800px; */
+  max-width: 1800px;
     width: 100%;
     padding: 0;
     margin: 0 auto;
@@ -298,9 +299,7 @@ p {
   top: 0;
   box-shadow: 0 0 20px rgba(0, 0.5, 0.5, 0.5);
   z-index: 1;
-  background: var(--gray-300);
-  /* background: var(--light-grey-color); */
-  border-bottom: 0px solid var(--gray-400);
+  background: var(--gray-500);
 
 }
 
@@ -308,8 +307,14 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--gray-300);
+  background: var(--gray-500);
   z-index: 10;
+  width: 100%;
+    /* ← ДОБАВИТЬ */
+    min-height: 60px;
+    /* ← ДОБАВИТЬ */
+    padding: 0 15px;
+    /* ← ДОБАВИТЬ (опционально) */
 }
 
 .menu__btn {
@@ -321,6 +326,9 @@ p {
 
 .menu__list {
   display: flex;
+
+  align-items: flex-start;
+    /* ← ДОБАВИТЬ */
 }
 
 .menu__list-item {
@@ -464,7 +472,7 @@ p {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
-  max-width: 1400px;
+
   width: 100%;
 }
 
@@ -483,21 +491,7 @@ p {
     grid-template-columns: 1fr;
   }
 }
-.card {
-  width: auto;
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Jost';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  border: 0px solid var(--gray-color);
-  transition: all .3s;
-  cursor: pointer;
-}
+
 
 
 @media (max-width: 1200px) {
@@ -544,7 +538,7 @@ p {
 }
 
 .about__cell {
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
   margin: 0px;
   padding: 0;
@@ -660,20 +654,7 @@ p {
 }
 
 /* ========== CARD ========== */
-.card {
-  width: auto;
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Jost';
-  font-weight: 500;
-  font-size: 12px;
-  border: 0px solid var(--gray-color);
-  transition: all .3s;
-  cursor: pointer;
-}
+
 
 /* ========== SPECS TABLE ========== */
 .specs-table {
@@ -714,6 +695,7 @@ p {
   font-weight: bold;
   min-width: 200px;
   border-right: 1px solid #eaeaea;
+  align-items: center;
 }
 
 .header-cell h5 {
@@ -844,7 +826,7 @@ p {
   box-sizing: border-box;
   padding: 20px;
   border-radius: 4px;
-  max-width: 1400px;
+  /* max-width: 1400px; */
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -884,7 +866,7 @@ p {
   color: black;
   font-family: 'Rubik';
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   border: 0px solid var(--color-gold);
   border-radius: 6px;
   background-color: var(--color-gold);
@@ -900,10 +882,10 @@ p {
 }
 
 .container {
-  max-width: 1200px;
-  margin: 10px 5px;
-  padding: 10px;
-
+  /* max-width: 1200px; */
+  /* margin: 6px 5px;
+  padding: 5px; */
+  width: 100%;
 }
 
 /* ========== TO TOP ========== */
