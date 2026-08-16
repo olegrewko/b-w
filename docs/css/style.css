@@ -1,3 +1,5 @@
+
+/*  */
 img {
   max-width: 100%;
   border-style: none;
@@ -49,7 +51,15 @@ img {
   src: url("../fonts/Jost-Medium.woff2") format("woff2");
   font-display: swap;
 }
-
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Rubik-Bold'),
+    url('../fonts/Rubik-Bold.woff2') format('woff2'),
+    url('../fonts/Rubik-Bold.woff') format('woff');
+  font-display: swap;
+}
 
 
 @font-face {
@@ -198,8 +208,8 @@ p {
 .container1800 {
   max-width: 1800px;
     width: 100%;
-    padding: 0;
-    margin: 0 auto;
+
+    margin: 10px auto;
 }
 
 .mt-50 {
@@ -235,12 +245,42 @@ p {
   margin-top: 10px;
 }
 
+.bordered-left {
+  border-left: 1px solid var(--contrast-color);
+  padding-left: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.bordered-text {
+  border: 1px solid #cccccc;
+  /* ← серая рамка */
+  padding: 5px;
+  /* ← отступы внутри рамки */
+  border-radius: 4px;
+  /* ← скругление углов (опционально) */
+  background: #fafafa;
+  /* ← легкий фон (опционально) */
+}
+
 .bt-2 {
-  border-top: 1px solid var(--bauhaus-gray);
+  border-top: 1px solid var(--contrast-color);
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.bt-6 {
+  display: block;
+  /* ← важно: блок на всю ширину */
+  border-top: 6px solid var(--contrast-color);
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 100%;
+  /* ← на всю ширину */
+  box-sizing: border-box;
+  /* ← чтобы padding не увеличивал ширину */
 }
 
 .white {
@@ -471,19 +511,27 @@ p {
 .grid-5 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-
+  gap: 5px;
+  max-width: 1800px;
   width: 100%;
 }
 
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 5px;
   max-width: 1400px;
   width: 100%;
 }
-
+.grid-7 {
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: stretch;
+  gap: 5px;
+  max-width: 1800px;
+  width: 100%;
+}
 @media (max-width: 768px) {
 
   .grid-5,
@@ -753,7 +801,7 @@ p {
 /* ========== TITLE STYLES ========== */
 .title-6r {
   font-family: 'Rubik';
-  font-weight: 900;
+  font-weight: 700;
   line-height: 120%;
   font-size: 20px;
   color: var(--bauhaus-black);
@@ -761,9 +809,9 @@ p {
 
 .title-12r {
   font-family: 'Rubik';
-  font-weight: 900;
+  font-weight: 700;
   line-height: 120%;
-  font-size: 30px;
+  font-size: 60px;
   color: var(--color-space);
 }
 
@@ -806,7 +854,7 @@ p {
   margin-left: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-
+  margin: 0 auto;
 }
 
 .text-grid-w23 {
@@ -2122,10 +2170,32 @@ p {
         }
 }
 .depo-title {
+  font-family: 'Rubik';
   font-weight: 900;
-  font-size: 18px;
+  font-size: 16px;
+  color: var(--contrast-color);
+  text-transform: uppercase;
+  margin: 5px;
 }
-.text-left {
-  font-weight: 900;
-    font-size: 16px;
+/* ===== ВТОРАЯ НАДПИСЬ (как кнопка) ===== */
+.depo-title-contrast {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-left: 2px;
+  /* ← убрать отступ, чтобы не было разрыва */
+
+  /* ===== СТИЛИ КАК У КНОПКИ ===== */
+  display: inline-block;
+  /* ← важно для фона */
+  background: var(--contrast-color);
+  color: var(--bauhaus-white, #ffffff);
+  padding: 12px 24px;
+  /* ← внутренние отступы как у кнопки */
+  border-radius: 4px;
+  /* ← скругление */
+  border: none;
+  transition: all 0.3s ease;
+  margin: 0px;
 }
