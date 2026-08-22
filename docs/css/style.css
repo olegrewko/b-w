@@ -60,7 +60,11 @@ img {
   max-width: 100%;
   border-style: none;
 }
-
+.fotorama img {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+}
 .cell-800 {
 
   max-width: 800px;
@@ -183,7 +187,15 @@ body {
 
 img {
   max-width: 100%;
-  border-style: none;
+  height: auto;
+  display: block;
+}
+
+/* Если картинка внутри маленького контейнера */
+.img-responsive {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
 a {
@@ -232,11 +244,54 @@ p {
 }
 
 /* ========== КОМПОНЕНТЫ ========== */
+.container900 {
+  max-width: 900px;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
 .container1000 {
   max-width: 1000px;
   width: 100%;
   padding: 0;
   margin: 0 auto;
+}
+.about__grid {
+
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-template-rows: auto;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+}
+/* Первая картинка занимает 3 колонки */
+.apartment_183:first-child {
+  grid-column: span 3;
+  /* ← занимает 3 колонки */
+  grid-row: 1;
+  /* ← первая строка */
+}
+
+/* Остальные картинки — по 1 колонке */
+.apartment_183:not(:first-child) {
+  grid-column: span 1;
+}
+/* Телефоны — 1 колонка */
+@media (max-width: 800px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    /* ← одна колонка */
+    gap: 0px;
+  }
+
+  .apartment_183:first-child,
+  .apartment_183:not(:first-child) {
+    grid-column: span 1;
+    /* ← все по одной колонке */
+    grid-row: auto;
+  }
 }
 .container1200 {
   max-width: 1200px;
@@ -576,11 +631,11 @@ p {
   width: 100%;
 }
 .grid-2 {
-  margin-top: 5px;
+  margin-top: 0px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
-  gap: 5px;
+  gap: 0px;
   /* max-width: 1400px; */
   width: 100%;
 }
@@ -932,8 +987,8 @@ background: var(--bauhaus-black);
 .contact-grid-w100 {
   border: 1px solid lightgrey;
   box-sizing: border-box;
-  padding: 30px;
-  border-radius: 4px;
+  padding: 5px;
+  border-radius: 0px;
   /* max-width: 1400px; */
   width: 100%;
   display: grid;
@@ -964,7 +1019,7 @@ background: var(--bauhaus-black);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 30px;
+  margin: 5px;
 }
 
 /* ========== FFC107 ========== */
@@ -2302,32 +2357,31 @@ background: var(--bauhaus-black);
 
 /* ===== КАЖДАЯ КОЛОНКА ===== */
 /* ===== ОБЁРТКА ДЛЯ КАРТИНОК С АККОРДЕОНАМИ ===== */
- .product-card {
-   /* Делаем все карточки одинаковой высоты */
+/* ===== КАРТОЧКА ===== */
+.product-card {
+  min-height: 350px;
+  max-width: 450px;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  border-radius: 2px;
+  padding: 0px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 0px solid #e0e0e0;
+  font-weight: 500;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
 
-   min-height: 350px;
-   /* Минимальная высота для выравнивания */
-   max-width: 450px;
-   width: 100%;
-   height: auto;
-   background: transparent;
-   border-radius: 2px;
-   padding: 0px;
-   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
-   transition: all 0.3s ease;
-   cursor: pointer;
-   border: 0px solid #e0e0e0;
-   font-weight: 500;
-   font-size: 12px;
-   /* Основная магия - flex колонка с прижатым низом */
-   display: flex;
-   flex-direction: column;
- }
+/* ===== КОНТЕЙНЕР ДЛЯ КАРТИНКИ ===== */
 .about__cell {
-  max-width: 600px;
+  max-width: 100%;
   width: 100%;
   margin: 0;
-  padding: 0 ;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2335,10 +2389,56 @@ background: var(--bauhaus-black);
 }
 
 .about__cell img {
-  max-width: 450px;
+  max-width: 100%;
   width: 100%;
+  height: auto;
   border-radius: 4px;
   display: block;
+}
+
+/* ===== СЕТКА ===== */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .product-card {
+    max-width: 100%;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-card {
+    max-width: 100%;
+    min-height: auto;
+    padding: 10px;
+  }
+
+  .about__cell img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* ===== АККОРДЕОН ===== */
