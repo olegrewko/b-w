@@ -1,4 +1,60 @@
+/* ========== ШРИФТЫ ========== */
+@font-face {
+  font-family: "Jost";
+  font-weight: 700;
+  src: url("../fonts/Jost-Bold.woff2") format("woff2");
+  font-display: swap;
+}
 
+@font-face {
+  font-family: "Jost";
+  font-weight: 500;
+  src: url("../fonts/Jost-Medium.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* ===== RUBIK REGULAR (400) ===== */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Rubik-Regular'),
+    url('../fonts/Rubik-Regular.woff2') format('woff2'),
+    url('../fonts/Rubik-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+/* ===== RUBIK MEDIUM (500) ===== */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Rubik-Medium'),
+    url('../fonts/Rubik-Medium.woff2') format('woff2'),
+    url('../fonts/Rubik-Medium.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Rubik-Bold'),
+    url('../fonts/Rubik-Bold.woff2') format('woff2'),
+    url('../fonts/Rubik-Bold.woff') format('woff');
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Rubik-Black'),
+    url('../fonts/Rubik-Black.woff2') format('woff2'),
+    url('../fonts/Rubik-Black.woff') format('woff');
+  font-display: swap;
+}
 /*  */
 img {
   max-width: 100%;
@@ -37,40 +93,8 @@ img {
  /* ========== СЛАЙДЕР ========== */
 
 
-/* ========== ШРИФТЫ ========== */
-@font-face {
-  font-family: "Jost";
-  font-weight: 700;
-  src: url("../fonts/Jost-Bold.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Jost";
-  font-weight: 500;
-  src: url("../fonts/Jost-Medium.woff2") format("woff2");
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Rubik-Bold'),
-    url('../fonts/Rubik-Bold.woff2') format('woff2'),
-    url('../fonts/Rubik-Bold.woff') format('woff');
-  font-display: swap;
-}
 
 
-@font-face {
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 900;
-  src: local('Rubik-Black'),
-    url('../fonts/Rubik-Black.woff2') format('woff2'),
-    url('../fonts/Rubik-Black.woff') format('woff');
-  font-display: swap;
-}
 
 /* ========== ПЕРЕМЕННЫЕ ========== */
 :root {
@@ -110,11 +134,21 @@ img {
 }
 
 /* ========== БАЗОВЫЕ СТИЛИ ========== */
+html,
+body {
+  /* overflow-x: hidden; */
+  /* убираем горизонтальную прокрутку */
+  max-width: 100%;
+  /* ограничиваем ширину */
+}
 * {
   box-sizing: border-box;
   box-shadow: var(--shadow) !important;
 }
-
+b {
+  font-size: 14px;
+  font-weight: 900;
+}
 html {
   scroll-behavior: smooth;
   line-height: 1.15;
@@ -198,6 +232,18 @@ p {
 }
 
 /* ========== КОМПОНЕНТЫ ========== */
+.container1000 {
+  max-width: 1000px;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+.container1200 {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
 .container1400 {
   max-width: 1400px;
   width: 100%;
@@ -261,11 +307,17 @@ p {
   background: #fafafa;
   /* ← легкий фон (опционально) */
 }
-
+.bb-2 {
+  border-bottom: 1px solid var(--gray-300);
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 .bt-2 {
-  border-top: 1px solid var(--contrast-color);
-  padding-top: 0px;
-  padding-bottom: 0px;
+  border-top: 1px solid var(--gray-300);
+  padding-top: 3px;
+  padding-bottom: 3px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -292,7 +344,7 @@ p {
 }
 
 .bg-grey {
-  background-color: #f3f3f3;
+  background-color: var(--color-space);
 }
 
 .bg-black {
@@ -523,23 +575,30 @@ p {
   max-width: 1400px;
   width: 100%;
 }
-.grid-7 {
+.grid-2 {
   margin-top: 5px;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
   gap: 5px;
-  max-width: 1800px;
+  /* max-width: 1400px; */
   width: 100%;
 }
 @media (max-width: 768px) {
-
+  .grid-2,
   .grid-5,
   .grid-3 {
     grid-template-columns: 1fr;
+    gap: 5px;
   }
 }
-
+@media (max-width: 470px) {
+  .grid-5,
+    .grid-3 {
+    grid-template-columns:  1fr;
+    gap: 5px;
+  }
+}
 
 
 @media (max-width: 1200px) {
@@ -637,26 +696,24 @@ p {
 .tabcontent:first-of-type {
   display: block;
 }
-/* ===== СКРОЛЛБАР ДЛЯ ТАБОВ ===== */
-.tabcontent::-webkit-scrollbar {
-  width: 18px;
-  /* ← в 3 раза толще (было 6px) */
+/* ===== СКРОЛЛБАР  ===== */
+/* ===== СТИЛИ ДЛЯ ПРОКРУТКИ ВНУТРИ АККОРДЕОНА ===== */
+.accordion-content::-webkit-scrollbar {
+  width: 16px;
 }
 
-.tabcontent::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
+.accordion-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
 }
 
-.tabcontent::-webkit-scrollbar-thumb {
-  background: #000000;
-  /* ← чёрный */
-  border-radius: 4px;
+.accordion-content::-webkit-scrollbar-thumb {
+  background: var(--bauhaus-dark);
+  border-radius: 3px;
 }
 
-.tabcontent::-webkit-scrollbar-thumb:hover {
-  background: #333333;
-  /* ← тёмно-серый при наведении */
+.accordion-content::-webkit-scrollbar-thumb:hover {
+background: var(--bauhaus-black);
 }
 /* Для мобильных устройств */
 @media (max-width: 768px) {
@@ -707,21 +764,24 @@ p {
 /* ========== SPECS TABLE ========== */
 .specs-table {
   display: flex;
+  flex-direction: column;
+    /* ← одна колонка */
   gap: 20px;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
-.table-column {
+/* .table-column {
   flex: 1;
   display: flex;
   flex-direction: column;
-}
+} */
 
 .table-row {
   display: flex;
+  flex-wrap: wrap;
   border-bottom: 1px solid #eaeaea;
   min-height: 60px;
 }
@@ -766,7 +826,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin: 20px;
+  margin: 30px;
 }
 
 .contacts__input {
@@ -786,14 +846,14 @@ p {
   font-size: 12px;
   border: none;
   color: var(--white);
-  background-color: var(--black);
+  background-color: var(--gray-700);
   border-radius: 3px;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .contacts__submit:hover {
-  color: var(--black);
+  color: var(--gray-700);
   background-color: var(--white);
   border: 2px solid var(--gray-300);
 }
@@ -870,9 +930,9 @@ p {
 }
 
 .contact-grid-w100 {
-  border: 3px solid var(--color-space);
+  border: 1px solid lightgrey;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 30px;
   border-radius: 4px;
   /* max-width: 1400px; */
   width: 100%;
@@ -904,7 +964,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 30px;
 }
 
 /* ========== FFC107 ========== */
@@ -1310,7 +1370,10 @@ p {
   border-radius: 4px;
   margin-top: 10px;
 }
-
+ .table-cell img {
+   width: 100%;
+   height: auto ;
+ }
 .header-cell h5 {
   margin: 0 0 10px 0;
 }
@@ -1354,7 +1417,7 @@ p {
   }
 
   .table-cell img {
-    max-width: 100% !important;
+    width: 100% !important;
     height: auto !important;
   }
 }
@@ -1888,19 +1951,30 @@ p {
 
 
 .fotorama {
+  max-width: 400px !important;
   width: 100% !important;
-  max-width: 100% !important;
+  display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .fotorama__stage {
   width: 100% !important;
+  display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .fotorama__img {
   width: 100% !important;
   height: auto !important;
   max-width: 100% !important;
+  max-height: 100% !important;
   object-fit: contain !important;
+  object-position: center !important;
+  /* ← центрируем изображение */
+  display: block !important;
+  margin: 0 auto !important;
 }
 
 /* Адаптив для мобильных */
@@ -2169,13 +2243,207 @@ p {
           color: #3d2b00;
         }
 }
-.depo-title {
-  font-family: 'Rubik';
-  font-weight: 900;
+/* ===== ИКОНКИ ===== */
+.table-icon {
+  width: 24px;
+  /* ← 2 раза меньше стандартных 48px */
+  height: 24px;
+  flex-shrink: 0;
+  display: block;
+  /* filter: brightness(0) invert(1); */
+  /* ← делает иконки белыми */
+}
+
+.df-0 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 5px;
+  margin-top: 0px;
+}
+
+.df {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 5px;
+  margin-top: 4px;
+}
+
+.dfs {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+.dfc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+/* ===== ОБЩИЙ КОНТЕЙНЕР ===== */
+/* ===== ОБЁРТКА ДЛЯ КАРТИНОК С АККОРДЕОНАМИ ===== */
+.about__inner {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  /* ← главное: выравнивание по верху */
+  gap: 20px;
+  padding: 20px 10px;
+}
+
+/* ===== КАЖДАЯ КОЛОНКА ===== */
+/* ===== ОБЁРТКА ДЛЯ КАРТИНОК С АККОРДЕОНАМИ ===== */
+ .product-card {
+   /* Делаем все карточки одинаковой высоты */
+
+   min-height: 350px;
+   /* Минимальная высота для выравнивания */
+   max-width: 450px;
+   width: 100%;
+   height: auto;
+   background: transparent;
+   border-radius: 2px;
+   padding: 0px;
+   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+   transition: all 0.3s ease;
+   cursor: pointer;
+   border: 0px solid #e0e0e0;
+   font-weight: 500;
+   font-size: 12px;
+   /* Основная магия - flex колонка с прижатым низом */
+   display: flex;
+   flex-direction: column;
+ }
+.about__cell {
+  max-width: 600px;
+  width: 100%;
+  margin: 0;
+  padding: 0 ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about__cell img {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+
+/* ===== АККОРДЕОН ===== */
+.accordion-item {
+  width: 100%;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  margin-top: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== ЗАГОЛОВОК (кликабельный) ===== */
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  padding: 15px 15px;
+  background: #f8f9fa;
+  transition: background 0.3s ease;
+  min-height: 54px;
+  /* ← фиксируем минимальную высоту */
+  width: 100%;
+}
+
+.accordion-header:hover {
+  background: #e9ecef;
+}
+
+.accordion-header h4 {
+  margin: 0;
+  flex: 1;
   font-size: 16px;
-  color: var(--contrast-color);
-  text-transform: uppercase;
-  margin: 5px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* ===== ИКОНКА ===== */
+.accordion-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  /* ← не даём иконке сжиматься */
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.accordion-icon.rotated {
+  transform: rotate(45deg);
+}
+
+/* ===== ВЫПАДАЮЩИЙ КОНТЕНТ ===== */
+.text-left {
+  text-align: left;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.4s ease,
+    opacity 0.4s ease;
+  padding: 0 15px;
+  opacity: 0;
+  background: #fff;
+
+}
+
+.accordion-content.open {
+  max-height: 1600px;
+  padding: 15px 15px 20px;
+  opacity: 1;
+    overflow-y: auto;
+      /* ← прокрутка внутри */
+}
+
+.accordion-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+.depo-title {
+  font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 0px;
+
+
+    /* ===== СТИЛИ КАК У КНОПКИ ===== */
+    display: inline-block;
+    /* ← важно для фона */
+    background: var(--bauhaus-white);
+    color: var(--gray-900);
+
+    /* ← внутренние отступы как у кнопки */
+    border-radius: 4px;
+    /* ← скругление */
+    border: none;
+    transition: all 0.3s ease;
+    margin: 0px;
 }
 /* ===== ВТОРАЯ НАДПИСЬ (как кнопка) ===== */
 .depo-title-contrast {
