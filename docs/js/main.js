@@ -1,27 +1,27 @@
 
 
 // ==================== ВКЛАДКИ (TABS) ====================
-window.openCity = function (evt, cityName) {
-  var i, tabcontent, tablinks;
+// window.openCity = function (evt, cityName) {
+//   var i, tabcontent, tablinks;
 
-  tabcontent = document.getElementsByClassName('tabcontent');
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = 'none';
-  }
+//   tabcontent = document.getElementsByClassName('tabcontent');
+//   for (i = 0; i < tabcontent.length; i++) {
+//     tabcontent[i].style.display = 'none';
+//   }
 
-  tablinks = document.getElementsByClassName('tablinks');
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].classList.remove('active');
-  }
+//   tablinks = document.getElementsByClassName('tablinks');
+//   for (i = 0; i < tablinks.length; i++) {
+//     tablinks[i].classList.remove('active');
+//   }
 
-  var targetTab = document.getElementById(cityName);
-  if (targetTab) {
-    targetTab.style.display = 'block';
-  }
-  if (evt && evt.currentTarget) {
-    evt.currentTarget.classList.add('active');
-  }
-};
+//   var targetTab = document.getElementById(cityName);
+//   if (targetTab) {
+//     targetTab.style.display = 'block';
+//   }
+//   if (evt && evt.currentTarget) {
+//     evt.currentTarget.classList.add('active');
+//   }
+// };
 
 // ============================================================
 // ОСНОВНОЙ КОД (выполняется после загрузки DOM)

@@ -741,7 +741,7 @@ p {
 /* Закрепляем высоту контейнера с табами */
 .tabcontent {
   display: none;
-  height: 700px;
+  height: 600px;
   /* ← фиксированная высота */
   overflow-y: auto;
   /* ← прокрутка внутри */
@@ -771,49 +771,72 @@ p {
 .accordion-content::-webkit-scrollbar-thumb:hover {
 background: var(--bauhaus-black);
 }
+
+.tabcontent::-webkit-scrollbar {
+  width: 16px;
+}
+
+.tabcontent::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.tabcontent::-webkit-scrollbar-thumb {
+  background: var(--bauhaus-dark);
+  border-radius: 3px;
+}
+
+.tabcontent::-webkit-scrollbar-thumb:hover {
+  background: var(--bauhaus-black);
+}
 /* Для мобильных устройств */
 @media (max-width: 768px) {
   .tabcontent {
-    min-height: 600px;
+    min-height: 500px;
     /* ← меньше высота на мобильных */
   }
 }
 
 @media (max-width: 480px) {
   .tabcontent {
-    min-height: 500px;
+    min-height: 400px;
     /* ← ещё меньше */
   }
 }
 
+/* .grid-products {
+  display: block;
+  margin-top: 10px;
+  color: var(--gray-700);
+    font-weight: 500;
+    font-size: 16px;
+  cursor: pointer;
+    transition: all 0.3s;
+
+} */
 .grid-products {
   display: block;
-  margin-top: 50px;
-  /* text-align: left;
-  max-width: 100%;
-  width: 100%;
-  height: 100px;
-  color: var(--black);
-  font-weight: 700;
+  margin-top: 10px;
+  color: var(--gray-700);
+  font-weight: 500;
   font-size: 16px;
-  border: 0px solid var(--color-onyx);
-  border-radius: 6px;
-  padding-left: 10px;
-  margin-bottom: 3px;
-  background-color: var(--bauhaus-gray);
   cursor: pointer;
-  transition: all 0.3s; */
+  transition: all 0.3s;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
 }
 
-/* .grid-products__btn:hover {
-  color: white;
-  border: 0px solid black;
-  background-color: var(--color-tundora);
-} */
+/* ===== АКТИВНАЯ ВКЛАДКА (выделенная) ===== */
+.grid-products.active {
+  color: var(--color-tundora, #2c3e50);
+  background: rgba(44, 62, 80, 0.1);
+  font-weight: 500;
+}
 
-.grid-products__btn.active {
-  background-color: transparent ;
-  color: var(--color-tundora);
+/* ===== HOVER ===== */
+.grid-products:hover {
+  color: var(--color-tundora, #2c3e50);
 }
 
 /* ========== CARD ========== */

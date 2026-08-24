@@ -2112,35 +2112,45 @@
       <div class="container1200 text-grid-w23 ">
         <div class="container1200 text-left text-grid-w100__content">
       <div class="tab container600 ">
+        <a class="grid-products tablinks" onclick="openCity(event, 'duo')">Formation Duo</a>
+        <a class="grid-products tablinks" onclick="openCity(event, 'Loudspeakers')" id="defaultOpen">Formation Wedge</a>
+        <a class="grid-products tablinks" onclick="openCity(event, 'Mini')">Formation Bar</a>
+        <a class="grid-products tablinks" onclick="openCity(event, 'Theater')">Formation Bass</a>
+        <a class="grid-products tablinks" onclick="openCity(event, 'Wireless Speakers')">Formation Audio</a>
 
-        <a class="grid-products tablinks" onclick="openCity(event, 'Loudspeakers')" id="defaultOpen">Напольные
-          колонки</a>
-        <a class="grid-products tablinks" onclick="openCity(event, 'Mini')">Полочные мониторы</a>
-        <a class="grid-products tablinks" onclick="openCity(event, 'Theater')">Домашний театр</a>
-        <a class="grid-products tablinks" onclick="openCity(event, 'Wireless Speakers')">Наушники</a>
-
-        <a class="grid-products tablinks" onclick="openCity(event, 'Avto')">Formation DUO</a>
-        <a class="grid-products tablinks" onclick="openCity(event, 'GKH')">Zeppelin</a>
+        <a class="grid-products tablinks" onclick="openCity(event, 'Avto')">Formation Flex</a>
+        <a class="grid-products tablinks" onclick="openCity(event, 'GKH')">Flex Wall</a>
+        <a class="grid-products tablinks" onclick="openCity(event, 'sub')">Subwoofers</a>
+        <a class="grid-products tablinks" onclick="openCity(event, 'u')">Усилители</a>
       </div>
        </div>
       <div class="text-grid-w23__content ml-10" style="border: 1px solid var(--gray-300); border-radius: 4px;">
+        <div id="duo" class="tabcontent">
+          <img src="img/kw.jpg" alt="img/kw.jpg">
+        </div>
         <div id="Loudspeakers" class="tabcontent">
-        <img src="img/n.jpg" alt="img/n.jpg">
+        <img src="img/flex.jpg" alt="img/n.jpg">
         </div>
         <div id="Mini" class="tabcontent">
-          <img src="img/b.jpg" alt="img/n.jpg">
+          <img src="img/ct8.4.jpg" alt="img/n.jpg">
         </div>
         <div id="Theater" class="tabcontent">
-          <img src="img/h.jpg" alt="img/n.jpg">
+          <img src="img/fbass.jpg" alt="img/n.jpg">
         </div>
         <div id="Wireless Speakers" class="tabcontent">
-          <img src="img/v.jpg" alt="img/n.jpg">
+          <img src="img/vse.jpg" alt="img/n.jpg">
         </div>
         <div id="Avto" class="tabcontent">
-          <img src="img/hh.jpg" alt="img/n.jpg">
+          <img src="img/sb_802.jpg" alt="img/n.jpg">
         </div>
         <div id="GKH" class="tabcontent">
-          <img src="img/c.jpg" alt="img/n.jpg">
+          <img src="img/flex.jpg" alt="img/n.jpg">
+        </div>
+        <div id="sub" class="tabcontent">
+          <img src="img/s01.jpg" alt="img/n.jpg">
+        </div>
+        <div id="u" class="tabcontent">
+          <img src="img/u01.jpg" alt="img/n.jpg">
         </div>
       </div>
     </div>
@@ -2972,7 +2982,32 @@
     });
   });
 </script>
+<script>
+  function openCity(evt, cityName) {
+      // Скрываем все вкладки
+      var tabcontent = document.getElementsByClassName("tabcontent");
+      for (var i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
 
+      // Убираем класс active у всех ссылок
+      var tablinks = document.getElementsByClassName("tablinks");
+      for (var i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+
+      // Показываем выбранную вкладку
+      document.getElementById(cityName).style.display = "block";
+
+      // Добавляем класс active на кликнутую ссылку
+      evt.currentTarget.classList.add("active");
+    }
+
+    // Открываем вкладку по умолчанию
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById("defaultOpen").click();
+    });
+</script>
 </body>
 
 </html>
