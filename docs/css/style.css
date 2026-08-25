@@ -742,13 +742,21 @@ p {
 .tabcontent {
   display: none;
   height: 500px;
+
+    /* ← центрируем всё содержимое */
   /* ← фиксированная высота */
   overflow-y: auto;
   /* ← прокрутка внутри */
   padding: 5px;
   box-sizing: border-box;
 }
-
+.tabcontent img {
+  display: block;
+  margin: 0 auto;
+  /* ← центрируем картинку */
+  max-width: 100%;
+  height: auto;
+}
 .tabcontent:first-of-type {
   display: block;
 }
