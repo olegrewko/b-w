@@ -929,7 +929,7 @@ background: var(--bauhaus-black);
   font-size: 12px;
   border: none;
   color: var(--white);
-  background-color: var(--color-tundora);
+  background-color: var(--bauhaus-dark);
   border-radius: 3px;
   cursor: pointer;
   transition: all 0.3s;
@@ -2181,6 +2181,7 @@ background: var(--bauhaus-black);
 
 /* Кнопка */
 .shop-grid__btn {
+  height: 50px;
   padding: 6px 30px;
   background-color: var(--bauhaus-dark);
   color: #ffffff;
