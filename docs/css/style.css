@@ -741,7 +741,7 @@ p {
 /* Закрепляем высоту контейнера с табами */
 .tabcontent {
   display: none;
-  height: 600px;
+  height: 500px;
   /* ← фиксированная высота */
   overflow-y: auto;
   /* ← прокрутка внутри */
@@ -792,7 +792,7 @@ background: var(--bauhaus-black);
 /* Для мобильных устройств */
 @media (max-width: 768px) {
   .tabcontent {
-    min-height: 500px;
+    min-height: 400px;
     /* ← меньше высота на мобильных */
   }
 }
@@ -816,7 +816,7 @@ background: var(--bauhaus-black);
 } */
 .grid-products {
   display: block;
-  margin-top: 10px;
+  margin-top: 5px;
   color: var(--gray-700);
   font-weight: 500;
   font-size: 16px;
@@ -830,8 +830,8 @@ background: var(--bauhaus-black);
 /* ===== АКТИВНАЯ ВКЛАДКА (выделенная) ===== */
 .grid-products.active {
   color: var(--color-tundora, #2c3e50);
-  background: rgba(44, 62, 80, 0.1);
-  font-weight: 500;
+  background: transparent;
+  font-weight: 700;
 }
 
 /* ===== HOVER ===== */
