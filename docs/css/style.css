@@ -249,6 +249,7 @@ p {
   width: 100%;
   padding: 0;
   margin: 0 auto;
+  
 }
 .container1000 {
   max-width: 1000px;
@@ -623,6 +624,13 @@ p {
   max-width: 1800px;
   width: 100%;
 }
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  max-width: 1400px;
+  width: 100%;
+}
 
 .grid-3 {
   display: grid;
@@ -660,21 +668,21 @@ p {
 @media (max-width: 1200px) {
   .grid-4 {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 10px !important;
+    gap: 5px !important;
   }
 }
 
 @media (max-width: 900px) {
   .grid-4 {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 10px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 5px !important;
   }
 }
 
 @media (max-width: 600px) {
   .grid-4 {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
+    gap: 5px !important;
   }
 }
 
