@@ -269,19 +269,19 @@ document.addEventListener('DOMContentLoaded', function () {
     notification.className = 'custom-notification';
     notification.style.cssText = `
       position: fixed;
-      top: 20px;
+      top: 80px;
       right: 20px;
       z-index: 1060;
       background: #1a1a1a;
       color: #ffffff;
-      padding: 1rem 2rem;
-      border-radius: 8px;
+      padding: 1rem 4rem;
+      border-radius: 4px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      max-width: 400px;
+      font-family: 'Jost', sans-serif;
+      font-size: 1rem;
+      max-width: 600px;
       animation: slideInRight 0.3s ease;
-      border-left: 4px solid #4CAF50;
+      border-left: 0px solid #4CAF50;
     `;
     notification.textContent = message;
 
@@ -510,11 +510,11 @@ document.addEventListener('DOMContentLoaded', function () {
       '705-s3': 'img/m01.jpg',
       '804-d4': 'img/m01.jpg',
       '803-d4': 'img/m01.jpg',
-      // Formation DUO (первый)
+      // Formation DUO
       'formation-duo': 'img/kw02.jpg',
       // Zeppelin
       'zeppelin': 'img/zeppelin.jpeg',
-      // Formation + (новые)
+      // Formation +
       'formation-duo2': 'img/kw.jpg',
       'formation-wedge': 'img/flex.jpg',
       'formation-bar': 'img/ct8.jpg',
@@ -523,7 +523,11 @@ document.addEventListener('DOMContentLoaded', function () {
       'formation-flex': 'img/sb_802.jpg',
       'flex-wall': 'img/flex.jpg',
       'db1d': 'img/s01.jpg',
-      'cda-2hd': 'img/u01.jpg'
+      'cda-2hd': 'img/u01.jpg',
+      // Наушники
+      'px7': 'img/n02.jpg',
+      'px7-s2': 'img/n03.jpg',
+      'pi7': 'img/n03.jpg'
     };
     return images[productId] || 'img/placeholder.png';
   }
