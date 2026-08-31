@@ -510,7 +510,7 @@ p {
 
 /* ===== СЛАЙДЕР (с центровкой) ===== */
  .slider-blog {
-  background: #000;
+  background: var(--bauhaus-black);
   width: 100%;
   overflow: hidden;
 
@@ -1152,16 +1152,13 @@ background: var(--bauhaus-black);
   display: inline-block;
 }
 
-.load-more-link:hover .ellipse-maroon::before {
-  border-color: #8B0000;
-  transition: border-color 0.3s ease;
-}
+
 .ellipse-maroon {
   position: relative;
   display: inline-block;
 }
 
-.ellipse-maroon::before {
+/* .ellipse-maroon::before {
   content: '';
   position: absolute;
   top: -5px;
@@ -1172,7 +1169,7 @@ background: var(--bauhaus-black);
   border-radius: 50%;
   transform: rotate(0deg);
   pointer-events: none;
-}
+} */
 /* ===== LOAD MORE КНОПКА ===== */
 #loadMoreBtn {
   text-decoration: none;
@@ -1189,6 +1186,7 @@ background: var(--bauhaus-black);
 
 .load-more-label {
   transition: all 0.3s ease;
+  color: #000;
 }
 
 /* ===== СТРЕЛКА ВНУТРИ КНОПКИ ===== */
@@ -1200,20 +1198,35 @@ background: var(--bauhaus-black);
   flex-shrink: 0;
 }
 
-/* ===== СТРЕЛКА ВНИЗ (начальное состояние) ===== */
-.load-more-arrow.down {
-  transform: rotate(-90deg);
+
+/* ===== СТРЕЛКА ===== */
+/* ===== СТРЕЛКА ===== */
+.load-more-arrow {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.4s ease, stroke-width 0.3s ease;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+  transform: rotate(0deg);
+  /* ← Вправо */
 }
 
-/* ===== СТРЕЛКА ВВЕРХ (возврат в начало) ===== */
-.load-more-arrow.up {
-  transform: rotate(-270deg);
+/* ===== ЖИРНЕЕ ПРИ НАВЕДЕНИИ ===== */
+.load-more-arrow:hover {
+  stroke-width: 4;
+  /* ← Жирнее */
 }
 
+/* ===== ВЛЕВО ПОСЛЕ КЛИКА ===== */
+.load-more-arrow.left {
+  transform: rotate(180deg);
+  /* ← Разворачиваем влево */
+}
 /* ===== ЭЛЛИПС ===== */
 .ellipse-maroon {
   position: relative;
   display: inline-block;
+
 }
 
 .ellipse-maroon::before {
@@ -1223,16 +1236,23 @@ background: var(--bauhaus-black);
   left: -30px;
   right: -30px;
   bottom: -5px;
-  border: 2px solid maroon;
+  border: 2px solid var(--gray-700);
+  background: rgba(96, 212, 212, 0.3);
   border-radius: 50%;
   pointer-events: none;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
+  transform: rotate(-5deg);
+  z-index: 1;
+    /* ← Контекст наложения */
+}
+/*  ХОВЕР ДОЛЖЕН БЫТЬ НА САМОМ ЭЛЕМЕНТЕ */
+.ellipse-maroon:hover::before {
+  background: rgba(96, 212, 212, 0.6);
+  transition: all 0.3s;
+  z-index: -1;
+    /* ← Псевдоэлемент ЗА текстом */
 }
 
-.ellipse-maroon:hover::before {
-  border-color: #8B0000;
-  transform: scale(1.05);
-}
 /* ========== TEXT GRID ========== */
 .text-grid-w100 {
   border: 0px solid var(--color-space);
@@ -3082,10 +3102,10 @@ background: var(--bauhaus-black);
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
-.ellipse-maroon:hover::before {
+/* .ellipse-maroon:hover::before {
   border-color: #8B0000;
   transform: scale(1.05);
-}
+} */
 /* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 1200px) {
   .blog-carousel .card {

@@ -543,10 +543,10 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
   var carousel = document.getElementById('blogCarousel');
   var loadMoreBtn = document.getElementById('loadMoreBtn');
-  var loadMoreLabel = document.querySelector('.load-more-label');
   var loadMoreArrow = document.querySelector('.load-more-arrow');
+  var loadMoreLabel = document.querySelector('.load-more-label');
 
-  if (!carousel || !loadMoreBtn) return;
+  if (!carousel || !loadMoreBtn || !loadMoreArrow) return;
 
   var currentPage = 1;
   var cardsPerPage = 5;
@@ -554,7 +554,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var totalPages = Math.ceil(totalCards / cardsPerPage);
   var isAtEnd = false;
 
-  // Если всего 1 страница — скрываем кнопку
   if (totalPages <= 1) {
     loadMoreBtn.style.display = 'none';
     return;
@@ -566,37 +565,34 @@ document.addEventListener('DOMContentLoaded', function () {
     return firstCard.offsetWidth + 20;
   }
 
-  function slideToPage(page, animate) {
+  function slideToPage(page) {
     if (page < 1 || page > totalPages) return;
 
     var cardWidth = getCardWidth();
     var offset = (page - 1) * cardsPerPage * cardWidth;
 
-    carousel.style.transition = animate !== false ? 'transform 0.5s ease' : 'transform 0.3s ease';
+    carousel.style.transition = 'transform 0.5s ease';
     carousel.style.transform = 'translateX(-' + offset + 'px)';
     currentPage = page;
 
-    // ⭐ Меняем состояние кнопки
     if (currentPage >= totalPages) {
-      // Достигли конца → показываем "Назад"
+      // Достигли конца → стрелка влево, текст "Вернуться"
       isAtEnd = true;
       loadMoreLabel.textContent = 'Вернуться';
-      loadMoreArrow.classList.remove('down');
-      loadMoreArrow.classList.add('up');
+      loadMoreArrow.classList.add('left');
     } else {
+      // Не в конце → стрелка вправо, текст "Load more"
       isAtEnd = false;
       loadMoreLabel.textContent = 'Load more';
-      loadMoreArrow.classList.remove('up');
-      loadMoreArrow.classList.add('down');
+      loadMoreArrow.classList.remove('left');
     }
   }
 
-  // Обработчик клика по кнопке
   loadMoreBtn.addEventListener('click', function (e) {
     e.preventDefault();
 
     if (isAtEnd) {
-      // Если в конце → возвращаемся в начало
+      // В конце → возвращаемся в начало
       slideToPage(1);
     } else {
       // Иначе → следующая страница
@@ -607,16 +603,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Обновление при ресайзе
   var resizeTimer;
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
-      slideToPage(currentPage, false);
+      slideToPage(currentPage);
     }, 200);
   });
 
-  // Инициализация
   slideToPage(1);
 
   console.log('✅ Блог: пагинация инициализирована. Страниц:', totalPages);
