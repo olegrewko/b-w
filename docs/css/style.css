@@ -1170,7 +1170,66 @@ background: var(--bauhaus-black);
   transform: rotate(0deg);
   pointer-events: none;
 }
+/* ===== LOAD MORE КНОПКА ===== */
+#loadMoreBtn {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
 
+#loadMoreText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 15px;
+}
+
+.load-more-label {
+  transition: all 0.3s ease;
+}
+
+/* ===== СТРЕЛКА ВНУТРИ КНОПКИ ===== */
+.load-more-arrow {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.5s ease;
+  color: var(--gray-900);
+  flex-shrink: 0;
+}
+
+/* ===== СТРЕЛКА ВНИЗ (начальное состояние) ===== */
+.load-more-arrow.down {
+  transform: rotate(-90deg);
+}
+
+/* ===== СТРЕЛКА ВВЕРХ (возврат в начало) ===== */
+.load-more-arrow.up {
+  transform: rotate(-270deg);
+}
+
+/* ===== ЭЛЛИПС ===== */
+.ellipse-maroon {
+  position: relative;
+  display: inline-block;
+}
+
+.ellipse-maroon::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -30px;
+  right: -30px;
+  bottom: -5px;
+  border: 2px solid maroon;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.ellipse-maroon:hover::before {
+  border-color: #8B0000;
+  transform: scale(1.05);
+}
 /* ========== TEXT GRID ========== */
 .text-grid-w100 {
   border: 0px solid var(--color-space);
@@ -2982,3 +3041,45 @@ background: var(--bauhaus-black);
        margin-bottom: 1rem;
        color: var(--color-silver);
      }
+/* ===== КАРУСЕЛЬ ===== */
+.blog-carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.blog-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+/* ===== КАРТОЧКИ ===== */
+.blog-carousel .card {
+  flex: 0 0 calc(20% - 16px);
+  min-width: 200px;
+}
+.blog-carousel {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  gap: 20px;
+}
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1200px) {
+  .blog-carousel .card {
+    flex: 0 0 calc(33.333% - 14px);
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-carousel .card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-carousel .card {
+    flex: 0 0 100%;
+  }
+}

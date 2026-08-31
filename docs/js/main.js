@@ -536,4 +536,88 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 }); // КОНЕЦ DOMContentLoaded
+// ============================================================
+// ==================== БЛОГ: ПАГИНАЦИЯ ========================
+// ============================================================
 
+document.addEventListener('DOMContentLoaded', function () {
+  var carousel = document.getElementById('blogCarousel');
+  var loadMoreBtn = document.getElementById('loadMoreBtn');
+  var loadMoreLabel = document.querySelector('.load-more-label');
+  var loadMoreArrow = document.querySelector('.load-more-arrow');
+
+  if (!carousel || !loadMoreBtn) return;
+
+  var currentPage = 1;
+  var cardsPerPage = 5;
+  var totalCards = carousel.children.length;
+  var totalPages = Math.ceil(totalCards / cardsPerPage);
+  var isAtEnd = false;
+
+  // Если всего 1 страница — скрываем кнопку
+  if (totalPages <= 1) {
+    loadMoreBtn.style.display = 'none';
+    return;
+  }
+
+  function getCardWidth() {
+    var firstCard = carousel.querySelector('.card');
+    if (!firstCard) return 200;
+    return firstCard.offsetWidth + 20;
+  }
+
+  function slideToPage(page, animate) {
+    if (page < 1 || page > totalPages) return;
+
+    var cardWidth = getCardWidth();
+    var offset = (page - 1) * cardsPerPage * cardWidth;
+
+    carousel.style.transition = animate !== false ? 'transform 0.5s ease' : 'transform 0.3s ease';
+    carousel.style.transform = 'translateX(-' + offset + 'px)';
+    currentPage = page;
+
+    // ⭐ Меняем состояние кнопки
+    if (currentPage >= totalPages) {
+      // Достигли конца → показываем "Назад"
+      isAtEnd = true;
+      loadMoreLabel.textContent = 'Вернуться';
+      loadMoreArrow.classList.remove('down');
+      loadMoreArrow.classList.add('up');
+    } else {
+      isAtEnd = false;
+      loadMoreLabel.textContent = 'Load more';
+      loadMoreArrow.classList.remove('up');
+      loadMoreArrow.classList.add('down');
+    }
+  }
+
+  // Обработчик клика по кнопке
+  loadMoreBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (isAtEnd) {
+      // Если в конце → возвращаемся в начало
+      slideToPage(1);
+    } else {
+      // Иначе → следующая страница
+      if (currentPage < totalPages) {
+        currentPage++;
+        slideToPage(currentPage);
+      }
+    }
+  });
+
+  // Обновление при ресайзе
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      slideToPage(currentPage, false);
+    }, 200);
+  });
+
+  // Инициализация
+  slideToPage(1);
+
+  console.log('✅ Блог: пагинация инициализирована. Страниц:', totalPages);
+});
