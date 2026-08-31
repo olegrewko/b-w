@@ -79,7 +79,7 @@ img {
    margin-left: 10px;
    margin-right: 10px;
  }
-.card {
+/* .card {
   width: auto;
   padding: 0;
   margin: 0;
@@ -92,7 +92,7 @@ img {
   border: 0px solid var(--gray-color);
   transition: all .3s;
   cursor: pointer;
-}
+} */
 
  /* ========== СЛАЙДЕР ========== */
 
@@ -634,12 +634,135 @@ p {
   max-width: 1400px;
   width: 100%;
 }
+
+/* ===== КАРТОЧКИ ===== */
 .card {
   position: relative;
-  /* ← обязательно */
-  /* остальные стили карточки */
+
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
 }
 
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  border: 1px solid var(--gray-300, #ddd);
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content b {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ===== ТЕКСТ =================================================================== */
+.card-text {
+  font-size: 1rem;
+  /* ← Шрифт НЕ уменьшаем */
+  line-height: 1.6;
+  color: #555;
+  margin: 0 0 12px 0;
+
+  /* ===== УМЕНЬШАЕМ ВИДИМУЮ ОБЛАСТЬ (в 3 раза) ===== */
+  max-height: 80px;
+  /* ← Высота видимой области (уменьшена) */
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.3s ease;
+  position: relative;
+}
+
+/* ===== ПЛАВНОЕ ЗАТУХАНИЕ ТЕКСТА ВНИЗУ ===== */
+.card-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent, #fff);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* ===== РАСШИРЕННЫЙ ТЕКСТ (в 6 раз больше) ===== */
+.card-text.expanded {
+  max-height: 480px;
+  /* ← 80px * 6 = 480px */
+}
+
+.card-text.expanded::after {
+  opacity: 0;
+  /* ← Убираем градиент при раскрытии */
+}
+
+/* ===== СТРЕЛКА ===== */
+.card-arrow {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #333;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+
+
+/* .card-arrow.rotated {
+  transform: rotate(-180deg);
+} */
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1200px) {
+  .grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-5 {
+    grid-template-columns: 1fr;
+  }
+}
+/* Высота свёрнутого текста (уменьшена в 3 раза) */
+.card-text {
+  max-height: 80px;
+  /* ← меняйте это значение */
+}
+
+/* Высота раскрытого текста (в 6 раз больше) */
+.card-text.expanded {
+  max-height: 480px;
+  /* ← 80px * 6 */
+}
 .card-arrow {
   position: absolute;
   bottom: 0px;
@@ -656,6 +779,15 @@ p {
 .card:hover .card-arrow {
   stroke-width: 3;
   color: var(--bauhaus-black);
+}
+.card-arrow {
+  transform: rotate(90deg);
+  transition: transform 0.4s ease;
+}
+
+.card-arrow.rotated {
+  transform: rotate(-45deg);
+  /* или -180deg, смотря что нужно */
 }
 .grid-3 {
   display: grid;
