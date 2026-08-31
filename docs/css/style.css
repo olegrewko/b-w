@@ -309,10 +309,13 @@ p {
 }
 
 .container1800 {
-  max-width: 1800px;
-    width: 100%;
-
-    margin: 10px auto;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  /* ← Центрирование контейнера */
+  padding: 0 15px;
+  /* ← Отступы по краям */
+  box-sizing: border-box;
 }
 
 .mt-50 {
@@ -665,14 +668,26 @@ p {
   margin-top: 0px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: stretch;
+  align-items: center;
+  /* ← Выравнивание по центру по вертикали */
   gap: 0px;
-  /* max-width: 1400px; */
   width: 100%;
+}
+
+/* Выравнивание текста в колонках */
+.grid-2 .depo-title:first-child {
+  text-align: left;
+  /* "Blog" слева */
+}
+
+.grid-2 .depo-title:last-child {
+  text-align: right;
+  /* "Load more" справа */
 }
 @media (max-width: 768px) {
   .grid-2,
   .grid-5,
+  .grid-4,
   .grid-3 {
     grid-template-columns: 1fr;
     gap: 5px;
@@ -680,6 +695,7 @@ p {
 }
 @media (max-width: 470px) {
   .grid-5,
+  .grid-4,
     .grid-3 {
     grid-template-columns:  1fr;
     gap: 5px;
@@ -777,7 +793,7 @@ p {
   /* ← фиксированная высота */
   overflow-y: auto;
   /* ← прокрутка внутри */
-  padding: 10px;
+  padding: 20px;
   box-sizing: border-box;
 }
 .tabcontent img {
@@ -995,6 +1011,16 @@ background: var(--bauhaus-black);
 }
 
 /* ========== ELLIPSE ========== */
+.load-more-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.load-more-link:hover .ellipse-maroon::before {
+  border-color: #8B0000;
+  transition: border-color 0.3s ease;
+}
 .ellipse-maroon {
   position: relative;
   display: inline-block;
@@ -1003,13 +1029,13 @@ background: var(--bauhaus-black);
 .ellipse-maroon::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -20px;
-  right: -20px;
-  bottom: -2px;
+  top: -5px;
+  left: -40px;
+  right: -40px;
+  bottom: -5px;
   border: 2px solid maroon;
-  border-radius: 50% / 30% 80% 80% 30%;
-  transform: rotate(1deg);
+  border-radius: 50%;
+  transform: rotate(0deg);
   pointer-events: none;
 }
 
@@ -2824,4 +2850,3 @@ background: var(--bauhaus-black);
        margin-bottom: 1rem;
        color: var(--color-silver);
      }
-  
