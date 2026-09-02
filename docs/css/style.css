@@ -504,7 +504,7 @@ p {
 }
 
 .dropbtn:hover {
-  color: var(--crime-orange);
+  color: var(--color-maroon);
 }
 
 
@@ -1140,15 +1140,73 @@ background: var(--bauhaus-black);
   z-index: 1;
 }
 
-/* ========== ELLIPSE ========== */
+/* ===== LOAD MORE КАК STEPPER ===== */
 .load-more-link {
-  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 24px;
   text-decoration: none;
-  display: inline-block;
+  color: #000;
+  transition: all 0.3s ease;
+  background: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* ===== ХОВЕР НА ССЫЛКУ ===== */
+.load-more-link:hover {
+  border-color: #8B0000;
+  color: #8B0000;
+}
+
+/* ===== ТЕКСТ МЕНЯЕТ ЦВЕТ ПРИ ХОВЕРЕ ===== */
+.load-more-link:hover .load-more-label {
+  color: maroon;
+}
+
+.load-more-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+}
+
+.load-more-label {
+  transition: color 0.3s ease;
+  font-size: 14px;
+    padding: 10px 0px;
+  line-height: 1.2;
+}
+
+.load-more-arrow {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.4s ease, stroke-width 0.3s ease;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+.load-more-link:hover .load-more-arrow {
+  stroke-width: 4;
+}
+
+.load-more-arrow.left {
+  transform: rotate(180deg);
+}
+
+/* ===== КОНТЕЙНЕР ===== */
+#loadMoreText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 15px;
 }
 
 
-.ellipse-maroon,
+
 .ellipse-maroon02 {
   position: relative;
   display: inline-block;
@@ -1180,44 +1238,14 @@ background: var(--bauhaus-black);
   padding: 5px 15px;
 }
 
-.load-more-label {
-  transition: all 0.3s ease;
-  color: #000;
-}
-
-/* ===== СТРЕЛКА ВНУТРИ КНОПКИ ===== */
-.load-more-arrow {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.5s ease;
-  color: var(--gray-900);
-  flex-shrink: 0;
-}
 
 
-/* ===== СТРЕЛКА ===== */
-/* ===== СТРЕЛКА ===== */
-.load-more-arrow {
-  width: 22px;
-  height: 22px;
-  transition: transform 0.4s ease, stroke-width 0.3s ease;
-  stroke-width: 2.5;
-  flex-shrink: 0;
-  transform: rotate(0deg);
-  /* ← Вправо */
-}
 
-/* ===== ЖИРНЕЕ ПРИ НАВЕДЕНИИ ===== */
-.load-more-arrow:hover {
-  stroke-width: 4;
-  /* ← Жирнее */
-}
 
-/* ===== ВЛЕВО ПОСЛЕ КЛИКА ===== */
-.load-more-arrow.left {
-  transform: rotate(180deg);
-  /* ← Разворачиваем влево */
-}
+
+
+
+
 /* ===== ЭЛЛИПС ===== */
 .ellipse-maroon {
   position: relative;
@@ -2174,7 +2202,7 @@ background: var(--bauhaus-black);
   display: flex;
 
   border: 2px solid #ccc;
-  height: 38px;
+  height: 50px;
 }
 
 .stepper__btn {
@@ -2228,7 +2256,7 @@ background: var(--bauhaus-black);
 .card-info__btn--tocart {
   margin-bottom: 5px;
   width: 100%;
-  height: 40px;
+  height: 50px;
   font-weight: 600;
   font-size: 12px;
 
@@ -2816,7 +2844,7 @@ background: var(--bauhaus-black);
     font-weight: 600;
     font-size: 14px;
     padding: 10px 0px;
-
+    line-height: 1.2;
 
     /* ===== СТИЛИ КАК У КНОПКИ ===== */
     display: inline-block;
