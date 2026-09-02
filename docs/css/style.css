@@ -1207,9 +1207,13 @@ background: var(--bauhaus-black);
 
 
 
+/* ===== ЭЛЛИПС ===== */
 .ellipse-maroon02 {
   position: relative;
   display: inline-block;
+  max-width: 100%;
+  /* ← Ограничиваем ширину */
+
 }
 
 .ellipse-maroon02::before {
@@ -1223,6 +1227,13 @@ background: var(--bauhaus-black);
   border-radius: 50%;
   transform: rotate(0deg);
   pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .ellipse-maroon02::before {
+    display: none;
+    /* ← Скрываем эллипс на маленьких экранах */
+  }
 }
 /* ===== LOAD MORE КНОПКА ===== */
 #loadMoreBtn {
@@ -1684,8 +1695,7 @@ background: var(--bauhaus-black);
   .contact-grid-w100 {
     grid-template-columns: 1fr;
     gap: 0px;
-    padding: 0px !important;
-    margin: 0px 0px;
+   
   }
 
   .footer__inner {
